@@ -3,10 +3,10 @@
 #
 
 # 修改openwrt登陆地址,把下面的192.168.2.2修改成你想要的就可以了
-sed -i 's/192.168.1.1/192.168.2.2/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.4.7/g' package/base-files/files/bin/config_generate
 
 # 修改主机名字，把OpenWrt-123修改你喜欢的就行（不能纯数字或者使用中文）
-sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenWrt-123'' package/lean/default-settings/files/zzz-default-settings
+sed -i '/uci commit system/i\uci set system.@system[0].hostname='OpenWrt'' package/lean/default-settings/files/zzz-default-settings
 
 # 版本号里显示一个自己的名字（把 ${Author} 改成你自己名字就行了，不改的话，默认使用你仓库帐号）
 sed -i "s/PTION='%D %V %C'/PTION='Compiled by ${Author} on $(TZ=UTC-8 date "+%Y/%m/%d") @ %D %V'/g" package/base-files/files/etc/openwrt_release
